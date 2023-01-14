@@ -21,6 +21,8 @@ public class ProductOfArrayExceptSelf {
 //        rightPass[lengthOfArray - 1] = 1;
         int[] result = new int[lengthOfArray];
 
+        result[0] = 1;
+
         for (int i = 1; i < lengthOfArray; i++) {
             result[i] = array[i - 1] * result[i - 1];
         }
@@ -28,7 +30,7 @@ public class ProductOfArrayExceptSelf {
 
         int right = 1;
         for (int i = lengthOfArray - 1; i >= 0 ; i--) {
-            result[i] = array[i + 1] * right;
+            result[i] = result[i] * right;
             right = right * array[i];
         }
 //        System.out.println(Arrays.toString(rightPass));
