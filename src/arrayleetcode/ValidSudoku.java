@@ -61,8 +61,7 @@ public class ValidSudoku {
 
     private static boolean isColumnsValid(String[][] sudoku) {
         for (int j = 0; j < sudoku[0].length; j++) {
-            if (!isColumnsValid(sudoku, j)) ;
-            return false;
+            if (!isColumnsValid(sudoku, j)) return false;
         }
         return true;
     }
