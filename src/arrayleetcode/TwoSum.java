@@ -6,11 +6,14 @@ import java.util.Map;
 public class TwoSum {
 
     public static void main(String[] args) {
-        Integer[] array = {2, 4, 6, 8, 10, 18, 13, 19}; // Input Array
+        // Input Array
+        Integer[] array = {2, 4, 6, 8, 10, 18, 13, 19};
 
-        Integer target = 17; // Target
+        // Target
+        Integer target = 17;
 
-        Integer[] result = twoSum(array, target); // Result will be in array, and we want index not element
+        // Result will be in array, and we want index not element
+        Integer[] result = twoSum(array, target);
 
         printArray(result);
     }
@@ -24,7 +27,8 @@ public class TwoSum {
 
     private static Integer[] twoSum(Integer[] array, Integer target) {
 
-        Map<Integer, Integer> map = new HashMap<>(); // Creating hashmap
+        // Creating hashmap
+        Map<Integer, Integer> map = new HashMap<>();
 
         // Filling hashmap
         for (int i = 0; i < array.length; i++) {
@@ -34,16 +38,22 @@ public class TwoSum {
         // Searching hashmap
         for (int i = 0; i < array.length; i++) {
 
-            int num = array[i]; // Taking first number of array
+            // Taking first number of array
+            int num = array[i];
 
-            int rem = target - num; // Taking another number which is the remaining of target - num
+            // Taking another number which is the remaining of target - num
+            int rem = target - num;
 
-            if (map.containsKey(rem)) { // Checking if map has the remaining number
-                int index = map.get(rem); // Grabbing the index of that number
-                if (index == i) continue; // Continue is used when we want to skip next step and proceed to
+            // Checking if map has the remaining number
+            if (map.containsKey(rem)) {
+                // Grabbing the index of that number
+                int index = map.get(rem);
+                // Continue is used when we want to skip next step and proceed to
                 // next iteration of loop in this case if index == i then we will not execute the below
                 // return statement and move to next iteration
-                return new Integer[]{i, index}; // We will return array with index of first and second element
+                if (index == i) continue;
+                // We will return array with index of first and second element
+                return new Integer[]{i, index};
             }
         }
         return new Integer[]{};

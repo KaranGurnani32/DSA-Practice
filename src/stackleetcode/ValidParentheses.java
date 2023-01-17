@@ -11,7 +11,7 @@ public class ValidParentheses {
 //    Open brackets must be closed in the correct order.
 //    Every close bracket has a corresponding open bracket of the same type.
     public static void main(String[] args) {
-        String input = "(){}[]";
+        String input = "(){}]";
         Boolean result = isValid(input);
 
         System.out.println("result = " + result);

@@ -26,24 +26,29 @@ public class ValidAnagram {
         Map<Character, Integer> map = new HashMap<>(); // Creating map
 
         for (int i = 0; i < first.length(); i++) {
-            char ch = first.charAt(i); // Every letter gets converted to character ch
-            // In getOrDefault method, it is used to get the valur mapped with specific key. If no value
+            // Every letter gets converted to character ch
+            // In getOrDefault method, it is used to get the value mapped with specific key. If no value
             // is mapped with the provided key then default value is returned
-            map.put(ch, map.getOrDefault(ch, 0) + 1); // We take letters as key and put number
+            char ch = first.charAt(i);
+            // We take letters as key and put number
             // of time, it appeared on string as value
+            map.put(ch, map.getOrDefault(ch, 0) + 1);
         }
 
         for (int i = 0; i < second.length(); i++) {
             char ch = second.charAt(i);
 
-            if (map.get(ch) == null) { // If map doesn't contain any letter from second string then
-                // it means that letter is not in first string, and it can't be anagram hence we return false
+            // If map doesn't contain any letter from second string then
+            // it means that letter is not in first string, and it can't be anagram hence we return false
+            if (map.get(ch) == null) {
                 return false;
             }
 
-            if (map.get(ch) == 1) { // If a letter appears one time then we remove it from map
+            // If a letter appears one time then we remove it from map
+            if (map.get(ch) == 1) {
                 map.remove(ch);
-            } else { // // If a letter appears more than one time then we remove its one instance from map
+                // If a letter appears more than one time then we remove its one instance from map
+            } else {
                 map.put(ch, map.get(ch) - 1);
             }
         }
