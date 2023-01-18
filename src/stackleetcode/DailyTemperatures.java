@@ -15,18 +15,27 @@ public class DailyTemperatures {
     }
 
     private static int[] dailyTemperatures(int[] temperatures) {
-
+        // We made an answer array which contains the output
         int[] answer = new int[temperatures.length];
 
+        // We created a stack
         Stack<Integer> stack = new Stack<>();
+
+        // We pushed the last index in this case 9 into stack
         stack.push(temperatures.length - 1);
+        // The last element of answer would be zero as there is no other element present after last element
         answer[answer.length - 1] = 0;
+
+        // Starting a for loop from second last index of temp array
         for (int i = temperatures.length - 2; i >= 0; i--) {
 
+            // We take an integer currentIndex which holds the value of i
             int currentIndex = i;
 
+            // We take an integer currentTemp which holds value of temp at currentIndex
             int currentTemp = temperatures[currentIndex];
 
+            // If currentTemp < temperatures[stack.peek()]
             if (currentTemp < temperatures[stack.peek()]) {
                 answer[i] = stack.peek() - currentIndex;
                 stack.push(i);
