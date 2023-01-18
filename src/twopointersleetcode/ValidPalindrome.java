@@ -2,7 +2,7 @@ package twopointersleetcode;
 
 public class ValidPalindrome {
     public static void main(String[] args) {
-        String input = "A man, a plan, a canal: Panama";
+        String input = "A man, a plan, a canal: Panama ";
 
         Boolean result = isPalindrome(input);
         System.out.println("Result = " + result);
@@ -18,8 +18,8 @@ public class ValidPalindrome {
         }
         tempString = tempString.toLowerCase();
 
-        int leftPointer = 0;
-        int rightPointer = tempString.length() - 1;
+        int leftPointer = 0; // 1 2 3
+        int rightPointer = tempString.length() - 1; // 7 6 5 4
 
         while (leftPointer <= rightPointer) {
             if (tempString.charAt(leftPointer) != tempString.charAt(rightPointer)) {
