@@ -20,11 +20,15 @@ public class MinStack {
         minStack1.push(-2);
         minStack1.push(0);
         minStack1.push(-3);
+//        minStack1.push(4);
+//        minStack1.push(-9);
+//        minStack1.push(-6);
         System.out.println(minStack1.getMin());
         minStack1.pop();
-        minStack1.top();
+        System.out.println(minStack1.top());
         System.out.println(minStack1.getMin());
-
+        minStack1.pop();
+        minStack1.pop();
 
     }
 
@@ -39,12 +43,17 @@ public class MinStack {
         if (minStack.isEmpty() || minStack.peek() > value) {
             minStack.push(value);
         } else {
+            // To maintain length
             minStack.push(minStack.peek());
         }
+        System.out.println("stack = " + stack);
+        System.out.println("minStack = " + minStack);
     }
     public void pop() {
         stack.pop();
         minStack.pop();
+        System.out.println("stack = " + stack);
+        System.out.println("minStack = " + minStack);
     }
     public int top() {
         return stack.peek();
